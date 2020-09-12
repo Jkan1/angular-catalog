@@ -9,7 +9,7 @@
 
 # dependencies
 /node_modules
-/src/assets/*
+/src/assets/images/*
 /src/templates
 
 # profiling files

@@ -6,8 +6,8 @@ import { ScreenComponent } from './screen/screen.component'
 export const routes: Routes = [
     {
         path: "",
-        pathMatch: 'exact',
-        component: ScreenComponent
+        component: ScreenComponent,
+        loadChildren: () => import('../catalog/catalog.module').then((m) => m.CatalogModule)
     }
 ]
 

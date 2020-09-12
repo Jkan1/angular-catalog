@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  showFooter = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleFooter(){
+    this.showFooter = this.showFooter ? false : true;
   }
 
 }

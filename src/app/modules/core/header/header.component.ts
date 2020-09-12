@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  hideHeader = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleHeader(){
+    this.hideHeader = this.hideHeader ? false : true;
   }
 
 }

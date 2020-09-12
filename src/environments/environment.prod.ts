@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  firebaseUrl:'https://catalog-c4048.firebaseio.com/'
 };
