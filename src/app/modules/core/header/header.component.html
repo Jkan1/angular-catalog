@@ -2,6 +2,9 @@
 <header id="header" [ngClass]="{hide: hideHeader }">
     <div class="inner">
         <div class="content">
+            <a class="home-button" [routerLink]="['/']" cssPointer [ngClass]="{'hide-home-button': hideHeader}">
+                <span>i</span>
+            </a>
             <h1>Catalog</h1>
             <h2>A collection of catalog pics.</h2>
             <a class="button big alt" (click)="toggleHeader()"><span>Check it out</span></a>
