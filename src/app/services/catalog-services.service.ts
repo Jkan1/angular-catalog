@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class CatalogServicesService {
+export class CatalogService {
 
   private ITEMS = 'Items';
 

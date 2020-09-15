@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CatalogServicesService } from '../../../services/catalog-services.service';
+import { CatalogService } from '../../../services/catalog-services.service';
 
 @Component({
   selector: 'app-catalog-list',
@@ -11,7 +11,7 @@ export class CatalogListComponent implements OnInit {
 
   public catalogList = [];
 
-  constructor(private catalogService: CatalogServicesService) { }
+  constructor(private catalogService: CatalogService) { }
 
   ngOnInit(): void {
     this.catalogService.fetchCatalog().subscribe(

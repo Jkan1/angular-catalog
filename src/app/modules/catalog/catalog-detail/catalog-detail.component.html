@@ -1,8 +1,12 @@
 <!-- Main -->
 <div id="preview">
-    <div class="inner">
+    <div *ngIf="loading" class="loading-spinner">
+        <loading-spinner></loading-spinner>
+    </div>
+    <div class="inner" *ngIf="!loading">
         <div class="image fit">
-            <img [src]="catalogItem ? catalogItem.src : 'null'" 
+            <img (load)="onImageLoad()" [@animationState]="imageState"
+                [src]="catalogItem ? catalogItem.src : 'null'"
             [alt]="catalogItem ? catalogItem.src : 'Image'" />
         </div>
         <div class="content">

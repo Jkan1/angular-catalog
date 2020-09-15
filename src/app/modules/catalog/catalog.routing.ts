@@ -13,7 +13,7 @@ export const routes: Routes = [
                 component: CatalogListComponent
             },
             {
-                path:"id/:itemId",
+                path: "id/:itemId",
                 component: CatalogDetailComponent
             }
         ]

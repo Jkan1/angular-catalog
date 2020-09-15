@@ -1,5 +1,5 @@
 <div class="image fit ">
     <a [routerLink]="['/id/',catalogItem.id]">
-        <img [src]=" catalogItem ? catalogItem.src: null " [alt]="catalogItem ? catalogItem.category: null" />
+        <img (load)="onImageLoad()" [@animationState]="imageState" [src]=" catalogItem ? catalogItem.src: null " [alt]="catalogItem ? catalogItem.category: null" />
     </a>
 </div>
