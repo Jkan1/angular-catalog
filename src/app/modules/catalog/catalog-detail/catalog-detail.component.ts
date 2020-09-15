@@ -19,6 +19,17 @@ import { CatalogService } from 'src/app/services/catalog-services.service';
       transition('loading <=> loaded', [
         animate(600)
       ])
+    ]),
+    trigger('textState', [
+      state('loading', style({
+        opacity: 0
+      })),
+      state('loaded', style({
+        opacity: 100
+      })),
+      transition('loading <=> loaded', [
+        animate(1000)
+      ])
     ])
   ]
 })
@@ -27,6 +38,7 @@ export class CatalogDetailComponent implements OnInit {
   public catalogItem: any;
   public loading = true;
   public imageState = 'loading';
+  public textState = 'loading';
   private itemId: string;
 
   constructor(private activeRoute: ActivatedRoute, private catalogService: CatalogService, private router: Router) { }
@@ -50,6 +62,7 @@ export class CatalogDetailComponent implements OnInit {
 
   onImageLoad() {
     this.imageState = 'loaded';
+    this.textState = 'loaded';
   }
 
   loadPage(next: boolean) {
@@ -58,6 +71,7 @@ export class CatalogDetailComponent implements OnInit {
       this.catalogService.nextItemId(this.itemId, next).subscribe((nextItemId) => {
         if (nextItemId) {
           this.imageState = 'loading';
+          this.textState = 'loading';
           this.router.navigate(['/id', nextItemId]);
         }
       });

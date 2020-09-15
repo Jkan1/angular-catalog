@@ -9,7 +9,7 @@
                 [src]="catalogItem ? catalogItem.src : 'null'"
             [alt]="catalogItem ? catalogItem.src : 'Image'" />
         </div>
-        <div class="content">
+        <div class="content" [@textState]="textState">
             <header>
                 <h2>{{catalogItem ? catalogItem.category : 'New Item'}}</h2>
                 <h3>{{catalogItem ? catalogItem.updated_at : null | date:'fullDate'}}</h3>
