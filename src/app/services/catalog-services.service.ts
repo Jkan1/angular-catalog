@@ -34,4 +34,30 @@ export class CatalogService {
     return this.httpClient.get(environment.firebaseUrl + this.ITEMS + '/' + catalogItemId + '.json');
   }
 
+  nextItemId(id: string, next: boolean): Observable<boolean | string> {
+    return this.httpClient.get(environment.firebaseUrl + this.ITEMS + '.json?shallow=true')
+      .pipe(map(
+        (result) => {
+          let itemIndex = result ? Object.keys(result) : [];
+          if (itemIndex && itemIndex.length) {
+            let currentIndex = itemIndex.indexOf(id);
+            if (next) {
+              if ((currentIndex + 1) < itemIndex.length) {
+                return itemIndex[currentIndex + 1];
+              } else {
+                return itemIndex[0];
+              }
+            } else {
+              if ((currentIndex - 1) >= 0) {
+                return itemIndex[currentIndex - 1];
+              } else {
+                return itemIndex[itemIndex.length - 1];
+              }
+            }
+          }
+          return false;
+        }
+      ));
+  }
+
 }

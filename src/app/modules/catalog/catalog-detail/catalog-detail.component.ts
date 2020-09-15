@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 import { CatalogService } from 'src/app/services/catalog-services.service';
@@ -27,13 +27,15 @@ export class CatalogDetailComponent implements OnInit {
   public catalogItem: any;
   public loading = true;
   public imageState = 'loading';
+  private itemId: string;
 
-  constructor(private activeRoute: ActivatedRoute, private catalogService: CatalogService) { }
+  constructor(private activeRoute: ActivatedRoute, private catalogService: CatalogService, private router: Router) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe(
       (params) => {
-        this.catalogService.fetchCatalogItemById(params['itemId']).subscribe(
+        this.itemId = params['itemId'];
+        this.catalogService.fetchCatalogItemById(this.itemId).subscribe(
           (response) => {
             if (response && response.updated_at) {
               response.updated_at = new Date(Date.parse(response.updated_at));
@@ -48,6 +50,20 @@ export class CatalogDetailComponent implements OnInit {
 
   onImageLoad() {
     this.imageState = 'loaded';
+  }
+
+  loadPage(next: boolean) {
+    this.loading = true;
+    if (this.itemId) {
+      this.catalogService.nextItemId(this.itemId, next).subscribe((nextItemId) => {
+        if (nextItemId) {
+          this.imageState = 'loading';
+          this.router.navigate(['/id', nextItemId]);
+        }
+      });
+    } else {
+      this.loading = false;
+    }
   }
 
 }
