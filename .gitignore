@@ -6,11 +6,12 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
+.angular
 
 # dependencies
 /node_modules
 /src/assets/images/*
-/src/assets/css/*.min.css
+# /src/assets/css/*.min.css
 /src/templates
 
 # profiling files
