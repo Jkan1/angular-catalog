@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebaseUrl:'https://catalog-c4048.firebaseio.com/'
+  firebaseUrl:'http://127.0.0.1:5500/assets/images/'
 };
 
 /*
