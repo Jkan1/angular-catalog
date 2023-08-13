@@ -6,8 +6,8 @@
     <div class="inner" *ngIf="!loading">
         <div class="image fit">
             <img (load)="onImageLoad()" [@animationState]="imageState"
-                [src]="catalogItem ? catalogItem.src : 'null'"
-            [alt]="catalogItem ? catalogItem.src : 'Image'" />
+                [src]="catalogItem ? catalogItem.url : 'null'"
+            [alt]="catalogItem ? catalogItem.url : 'Image'" />
         </div>
         <div class="content" [@textState]="textState">
             <header>
