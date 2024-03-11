@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 })
 export class CatalogService {
 
-  private ITEMS = 'Items';
+  private ITEMS = 'images';
 
   constructor(private httpClient: HttpClient) { }
 

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebaseUrl:'http://127.0.0.1:5500/assets/images/'
+  firebaseUrl:'https://catalog-e64ce-default-rtdb.asia-southeast1.firebasedatabase.app/'
 };
 
 /*
